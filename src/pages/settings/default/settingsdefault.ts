@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { Platform,IonicPage } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 import {UtilService} from '../../../providers/util.service';
 import {DatabaseService} from '../../../providers/database.service';
 import {SharedService} from '../../../providers/sharedservice';
 
-@IonicPage({name: 'SettingsDefault'})
 @Component({
 	selector: 'settings-default',
 	templateUrl: 'settingsdefault.html'
 })
-export class SettingsDefaultPage {
+export class SettingsDefault {
 	selectedSettings : any = {};
 	pernr : any;
 	constructor(private utilService: UtilService,

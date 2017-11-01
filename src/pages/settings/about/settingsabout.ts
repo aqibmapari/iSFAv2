@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
-import { Platform, IonicPage } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 import { Device } from '@ionic-native/device';
 import { AppVersion } from '@ionic-native/app-version';
 import {UtilService} from '../../../providers/util.service';
 import {DatabaseService} from '../../../providers/database.service';
 import {SharedService} from '../../../providers/sharedservice';
 
-@IonicPage({name: 'SettingsAbout'})
 @Component({
 	selector: 'settings-about',
 	templateUrl: 'settingsabout.html'
 })
-export class SettingsAboutPage {
+export class SettingsAbout {
 	selectedSettings : any = {};
 	pernr : any;
 	constructor(private utilService: UtilService,

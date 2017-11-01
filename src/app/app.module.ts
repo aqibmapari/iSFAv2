@@ -7,7 +7,6 @@ import { SQLite } from '@ionic-native/sqlite';
 import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { SpotifyProvider } from '../providers/spotify/spotify';
-import { TabsComponentModule } from "../components/tabs/tabs.module";
 
 import {SharedService} from '../providers/sharedservice';
 import {UtilService} from '../providers/util.service';
@@ -24,7 +23,6 @@ import {VisitSyncAPIService} from '../providers/visitsyncapi.service';
   imports: [
     BrowserModule,
     HttpModule,
-    TabsComponentModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

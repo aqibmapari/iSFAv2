@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
-@IonicPage({name: 'SettingsBackend'})
 @Component({
 	selector: 'settings-backend',
 	templateUrl: 'settingsbackend.html'
 })
-export class SettingsBackendPage {
+export class SettingsBackend {
 	selectedSettings : any = {};
 	constructor() {
 		this.selectedSettings = {

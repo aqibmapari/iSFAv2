@@ -29,7 +29,7 @@ export class MyApp {
 		public utilService: UtilService
 	) {
 		this.initializeApp();
-		sharedService.setIP('http://202.189.244.62:8080/rajhanssales');
+		sharedService.setIP('http://123/rajhanssales');
 		sharedService.setAPIObj([{key: 'user', className: '/getUserJsonAction.do'},
 			{key: 'authenticate', className: '/ValidateLoginAction.do'},
 			{key: 'dashboardvideo', className: '/VideoMessageAction.do'},

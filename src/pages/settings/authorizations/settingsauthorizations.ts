@@ -3,12 +3,11 @@ import { Platform,IonicPage } from 'ionic-angular';
 import {UtilService} from '../../../providers/util.service';
 import {DatabaseService} from '../../../providers/database.service';
 import {SharedService} from '../../../providers/sharedservice';
-@IonicPage({name: 'SettingsDefault'})
 @Component({
 	selector: 'settings-authorizations',
 	templateUrl: 'settingsauthorizations.html'
 })
-export class SettingsAuthorizationsPage {
+export class SettingsAuthorizations {
 	selectedSettings : any = {};
 	pernr : any;
 	constructor(private utilService: UtilService,
