@@ -27,23 +27,25 @@ export class SettingsDefault {
 			this.databaseService.selectComplexQuery(sql,[this.utilService.encode64(this.pernr)],0)
             .then((results) => {
                 console.log(JSON.stringify(results));
-                if(results['rows'].length !== 0){
-					for(var i=0; i < results['rows'].length; i++){
-						var row = results['rows']['item'](i);
-						if(this.utilService.decode64(row.subtyp)=='salesorganization'){
-							this.selectedSettings.salesorg = this.utilService.decode64(row.id);
-						}
-						else if(this.utilService.decode64(row.subtyp)=='distributionchannel'){
-							this.selectedSettings.distrchannel = this.utilService.decode64(row.id);
-						}
-						else if(this.utilService.decode64(row.subtyp)=='division'){
-							this.selectedSettings.division = this.utilService.decode64(row.id);
-						}
-						else if(this.utilService.decode64(row.subtyp)=='order'){
-							this.selectedSettings.salesdoc = this.utilService.decode64(row.id);
-						}
-					}
-                }
+								if(results['rows'] !== undefined && results['rows'] !== null){
+									if(results['rows'].length !== 0){
+										for(var i=0; i < results['rows'].length; i++){
+											var row = results['rows']['item'](i);
+											if(this.utilService.decode64(row.subtyp)=='salesorganization'){
+												this.selectedSettings.salesorg = this.utilService.decode64(row.id);
+											}
+											else if(this.utilService.decode64(row.subtyp)=='distributionchannel'){
+												this.selectedSettings.distrchannel = this.utilService.decode64(row.id);
+											}
+											else if(this.utilService.decode64(row.subtyp)=='division'){
+												this.selectedSettings.division = this.utilService.decode64(row.id);
+											}
+											else if(this.utilService.decode64(row.subtyp)=='order'){
+												this.selectedSettings.salesdoc = this.utilService.decode64(row.id);
+											}
+										}
+									}
+								}
             }, (err) => {
                 console.log(JSON.stringify(err));
             });

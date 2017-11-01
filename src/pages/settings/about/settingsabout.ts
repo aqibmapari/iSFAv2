@@ -40,17 +40,19 @@ export class SettingsAbout {
 			this.databaseService.selectComplexQuery(sql,[this.utilService.encode64(this.pernr)],0)
             .then((results) => {
                 console.log(JSON.stringify(results));
-                if(results['rows'].length !== 0){
-                    var row = results['rows']['item'](0);
-                    this.selectedSettings.firstname = this.utilService.decode64(row.nachn);
-                    this.selectedSettings.lastname = this.utilService.decode64(row.vorna);
-                    this.selectedSettings.designation = this.utilService.decode64(row.designation);
-                    this.selectedSettings.role = (this.utilService.decode64(row.roledesc));
-                    this.selectedSettings.emailid = this.utilService.decode64(row.emailid);
-					var reportingtofname = this.utilService.decode64(row.reporttonachn);
-					var reportingtolname = this.utilService.decode64(row.reporttovorna);
-                    if(reportingtofname != null )this.selectedSettings.reportingto = reportingtofname+' '+reportingtolname;
-                }
+				if(results['rows'] !== undefined && results['rows'] !== null){
+					if(results['rows'].length !== 0){
+						var row = results['rows']['item'](0);
+						this.selectedSettings.firstname = this.utilService.decode64(row.nachn);
+						this.selectedSettings.lastname = this.utilService.decode64(row.vorna);
+						this.selectedSettings.designation = this.utilService.decode64(row.designation);
+						this.selectedSettings.role = (this.utilService.decode64(row.roledesc));
+						this.selectedSettings.emailid = this.utilService.decode64(row.emailid);
+						var reportingtofname = this.utilService.decode64(row.reporttonachn);
+						var reportingtolname = this.utilService.decode64(row.reporttovorna);
+						if(reportingtofname != null )this.selectedSettings.reportingto = reportingtofname+' '+reportingtolname;
+					}
+				}
             }, (err) => {
                 console.log(JSON.stringify(err));
             });

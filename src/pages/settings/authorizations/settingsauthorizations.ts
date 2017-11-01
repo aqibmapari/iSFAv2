@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform,IonicPage } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 import {UtilService} from '../../../providers/util.service';
 import {DatabaseService} from '../../../providers/database.service';
 import {SharedService} from '../../../providers/sharedservice';
@@ -41,20 +41,23 @@ export class SettingsAuthorizations {
 			this.databaseService.selectComplexQuery(sql1,[this.utilService.encode64(this.pernr)],0)
             .then((results) => {
                 console.log(JSON.stringify(results));
-                if(results['rows'].length !== 0){
-					var row = results['rows']['item'](0);
-					this.selectedSettings.branch = this.utilService.checkReturnValue(this.utilService.decode64(row.branch),'');
-					this.selectedSettings.custgroup = this.utilService.checkReturnValue(this.utilService.decode64(row.customergroup),'');
-					this.selectedSettings.custclass = this.utilService.checkReturnValue(this.utilService.decode64(row.customerclass),'');
-					this.selectedSettings.custchain = this.utilService.checkReturnValue(this.utilService.decode64(row.customerchain),'');
-					this.selectedSettings.popclass = this.utilService.checkReturnValue(this.utilService.decode64(row.popclass),'');
-					this.selectedSettings.industry = this.utilService.checkReturnValue(this.utilService.decode64(row.industry),'');
-					this.selectedSettings.industrycode1 = this.utilService.checkReturnValue(this.utilService.decode64(row.industrycode1),'');
-					this.selectedSettings.status = this.utilService.checkReturnValue(this.utilService.decode64(row.status),'');
-					this.selectedSettings.parentgroup = this.utilService.checkReturnValue(this.utilService.decode64(row.parentgroup),'');
-					this.selectedSettings.tersalesgrp = this.utilService.checkReturnValue(this.utilService.decode64(row.territorysalesgrp),'');
-					this.selectedSettings.customer = this.utilService.checkReturnValue(this.utilService.decode64(row.customer),'');
-                }
+				if(results['rows'] !== undefined && results['rows'] !== null){
+					if(results['rows'].length !== 0){
+						var row = results['rows']['item'](0);
+						this.selectedSettings.branch = this.utilService.checkReturnValue(this.utilService.decode64(row.branch),'');
+						this.selectedSettings.custgroup = this.utilService.checkReturnValue(this.utilService.decode64(row.customergroup),'');
+						this.selectedSettings.custclass = this.utilService.checkReturnValue(this.utilService.decode64(row.customerclass),'');
+						this.selectedSettings.custchain = this.utilService.checkReturnValue(this.utilService.decode64(row.customerchain),'');
+						this.selectedSettings.popclass = this.utilService.checkReturnValue(this.utilService.decode64(row.popclass),'');
+						this.selectedSettings.industry = this.utilService.checkReturnValue(this.utilService.decode64(row.industry),'');
+						this.selectedSettings.industrycode1 = this.utilService.checkReturnValue(this.utilService.decode64(row.industrycode1),'');
+						this.selectedSettings.status = this.utilService.checkReturnValue(this.utilService.decode64(row.status),'');
+						this.selectedSettings.parentgroup = this.utilService.checkReturnValue(this.utilService.decode64(row.parentgroup),'');
+						this.selectedSettings.tersalesgrp = this.utilService.checkReturnValue(this.utilService.decode64(row.territorysalesgrp),'');
+						this.selectedSettings.customer = this.utilService.checkReturnValue(this.utilService.decode64(row.customer),'');
+					}
+				}
+
             }, (err) => {
                 console.log(JSON.stringify(err));
             });
@@ -65,16 +68,18 @@ export class SettingsAuthorizations {
 			this.databaseService.selectComplexQuery(sql2,[this.utilService.encode64(this.pernr)],0)
             .then((results) => {
                 console.log(JSON.stringify(results));
-                if(results['rows'].length !== 0){
-					var row = results['rows']['item'](0);
-					this.selectedSettings.businessunit = this.utilService.checkReturnValue(this.utilService.decode64(row.businessunit),'');
-					this.selectedSettings.productdiv = this.utilService.checkReturnValue(this.utilService.decode64(row.producdivision),'');
-					this.selectedSettings.category = this.utilService.checkReturnValue(this.utilService.decode64(row.category),'');
-					this.selectedSettings.subcategory = this.utilService.checkReturnValue(this.utilService.decode64(row.subcategory),'');
-					this.selectedSettings.principal = this.utilService.checkReturnValue(this.utilService.decode64(row.principal),'');
-					this.selectedSettings.brand = this.utilService.checkReturnValue(this.utilService.decode64(row.brand),'');
-					this.selectedSettings.segment = this.utilService.checkReturnValue(this.utilService.decode64(row.segment),'');
-                }
+				if(results['rows'] !== undefined && results['rows'] !== null){
+					if(results['rows'].length !== 0){
+						var row = results['rows']['item'](0);
+						this.selectedSettings.businessunit = this.utilService.checkReturnValue(this.utilService.decode64(row.businessunit),'');
+						this.selectedSettings.productdiv = this.utilService.checkReturnValue(this.utilService.decode64(row.producdivision),'');
+						this.selectedSettings.category = this.utilService.checkReturnValue(this.utilService.decode64(row.category),'');
+						this.selectedSettings.subcategory = this.utilService.checkReturnValue(this.utilService.decode64(row.subcategory),'');
+						this.selectedSettings.principal = this.utilService.checkReturnValue(this.utilService.decode64(row.principal),'');
+						this.selectedSettings.brand = this.utilService.checkReturnValue(this.utilService.decode64(row.brand),'');
+						this.selectedSettings.segment = this.utilService.checkReturnValue(this.utilService.decode64(row.segment),'');
+					}
+				}
             }, (err) => {
                 console.log(JSON.stringify(err));
             });

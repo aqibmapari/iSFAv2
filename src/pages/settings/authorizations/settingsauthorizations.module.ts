@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { SettingsAuthorizationsPage } from './settingsauthorizations';
+import { IonicModule } from 'ionic-angular';
+import { SettingsAuthorizations } from './settingsauthorizations';
 
 @NgModule({
   declarations: [
-    SettingsAuthorizationsPage,
+    SettingsAuthorizations,
   ],
   imports: [
-    IonicPageModule.forChild(SettingsAuthorizationsPage),
+    IonicModule,
   ]
 })
 export class SettingsAuthorizationsPageModule {}
